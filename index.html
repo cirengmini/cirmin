@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cirmin</title>
     <link rel="stylesheet" href="./css/tailwind.css" />
+    <style>
+       html {
+        scroll-behavior: smooth;
+       } 
+    </style>
   </head>
   <body>
     <div class="container mx-auto p-5">
@@ -25,7 +30,7 @@
           <p class="uppercase text-gray-600 tracking-wide text-center md:self-start md:text-left">Isi Ayam atau Abon? Pilih Cireng Mini, Rasakan Kedua Kelezatannya</p>
           <a href="#product" class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-4 px-8 text-gray-50 uppercase text-xl md:self-start my-5">beli sekarang</a>
         </div>
-        <div class="md:w-3/5">
+        <div class="md:w-3/5 mt-10">
           <img src="images/products/cireng/cireng2.jpg" class="w-full rounded-xl shadow-lg" />
         </div>
       </div>
@@ -138,6 +143,35 @@
       </div>
       <!-- Men's Collection Section -->
 
+      <!-- coundown start -->
+      <h2 class="uppercase text-center mb-5 text-lg font-semibold">tersedia dalam waktu</h2>
+        <div class="countdown flex flex-wrap gap-2 items-center 
+        justify-center">
+         <div> <div id="hari" class="font-semibold text-2xl py-4 px-7 
+          bg-gradient-to-r from-red-600 to-pink-500  text-white rounded-lg hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600"></div>
+          <p class="font-semibold text-center uppercase mt-2">hari</p>
+        </div>
+
+        <div> <div id="jam" class="font-semibold text-2xl py-4 px-7 
+          bg-gradient-to-r from-red-600 to-pink-500  text-white rounded-lg 
+        hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600"></div>
+          <p class="font-semibold text-center uppercase mt-2">jam</p>
+        </div>
+
+        <div> <div id="menit" class="font-semibold text-2xl py-4 px-7 
+          bg-gradient-to-r from-red-600 to-pink-500  text-white rounded-lg 
+        hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600"></div>
+          <p class="font-semibold text-center uppercase mt-2">menit</p>
+        </div>
+
+        <div> <div id="detik" class="font-semibold text-2xl py-4 px-7 
+          bg-gradient-to-r from-red-600 to-pink-500  text-white rounded-lg 
+        hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600"></div>
+          <p class="font-semibold text-center uppercase mt-2">detik</p>
+        </div>
+        </div>
+        <!-- coundown end -->
+
       <div class="rounded-lg shadow-lg my-20 flex flex-row" id="contact">
         <div class="lg:w-3/5 w-full bg-gradient-to-r from-black to-purple-900 lg:from-black lg:via-purple-900 lg:to-transparent rounded-lg text-gray-100 p-12">
           <div class="lg:w-1/2">
@@ -154,10 +188,48 @@
       </div>
       <!-- Newsletter Section -->
 
+      <h2 class="font-semibold text-center mb-3">dibuat oleh : </h2>
+      <div id="member" class="flex flex-wrap gap-3 mb-5 text-center justify-center">
+        <h2 class="text-base font-semibold">subky</h2>
+        <h2 class="text-base font-semibold">nuryanah</h2>
+        <h2 class="text-base font-semibold">nanda</h2>
+        <h2 class="text-base font-semibold">khairunisa</h2>
+        <h2 class="text-base font-semibold">linggar</h2>
+      </div>
+
       <div class="border-t-2 border-gray-300 flex flex-col md:flex-row md:justify-between text-center py-5 text-sm">
         <p>&copy; Copyright Reserved 2023</p>
       </div>
       <!-- Footer Section -->
     </div>
+
+    <script>
+      
+      let countDate = new Date('oct 31 2023 13:00:00').getTime();
+
+      function newYear() {
+        let now = new Date().getTime();
+        gap = countDate - now;
+
+        let detik = 1000;
+        let menit = detik * 60;
+        let jam = menit * 60;
+        let hari = jam * 24;
+
+        let h = Math.floor( gap / (hari));
+        let j = Math.floor((gap % (hari)) / (jam));
+        let m = Math.floor((gap % (jam)) / (menit));
+        let d = Math.floor((gap % (menit)) / (detik));
+
+        document.getElementById('hari').innerText = h;
+        document.getElementById('jam').innerText = j;
+        document.getElementById('menit').innerText = m;
+        document.getElementById('detik').innerText = d;
+      }
+
+      setInterval( function() {
+        newYear();
+      }, 1000);
+    </script>
   </body>
 </html>
